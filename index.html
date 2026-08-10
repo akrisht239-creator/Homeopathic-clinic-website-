@@ -910,4 +910,765 @@
         width: 100%;
         background: var(--color-bg-base);
         flex-direction: column;
+        padding: 3rem 2rem;
+        border-bottom: 1px solid var(--color-border);
+        transform: translateY(-150%);
+        transition: transform 0.4s var(--ease-editorial);
+        gap: 1.75rem;
+      }
+
+      .nav-links.active {
+        transform: translateY(0);
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .hero-badge {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        max-width: 100%;
+        margin-top: 1rem;
+      }
+
+      .hero-image-frame {
+        height: 440px;
+      }
+
+      .trust-grid, .timeline-list {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY NAVBAR -->
+  <header class="nav-header">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo" onclick="switchPage('home')">
+        <span class="brand-title">[CLINIC NAME]</span>
+        <span class="brand-subtitle">Classical Homeopathy</span>
+      </a>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="nav-link active" onclick="switchPage('home')">Home</a></li>
+          <li><a href="#about" class="nav-link" onclick="switchPage('about')">About Doctor</a></li>
+          <li><a href="#treatments" class="nav-link" onclick="switchPage('treatments')">Treatments</a></li>
+          <li><a href="#contact" class="nav-link" onclick="switchPage('contact')">Contact</a></li>
+        </ul>
+      </nav>
+      <div style="display: flex; gap: 1rem; align-items: center;">
+        <button class="btn btn-primary" onclick="openModal()" style="padding: 0.9rem 1.8rem;">
+          Book Appointment
+          <i data-lucide="arrow-right"></i>
+        </button>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HOME PAGE VIEW ==================== -->
+  <main id="page-home" class="page-view active">
+    
+    <!-- HERO SECTION -->
+    <section style="padding-top: 100px;">
+      <div class="container">
+        <div class="hero-split">
+          <div class="hero-content">
+            <span class="section-eyebrow">Individualised Classical Medicine</span>
+            <h1 class="hero-title">Personalised Care. <em>Focused on You.</em></h1>
+            <p class="hero-subtitle">Restoring your body’s natural vitality through precise, non-invasive, and individualised homeopathic consultations tailored for lasting recovery.</p>
+            <div class="hero-cta-group">
+              <button class="btn btn-primary" onclick="openModal()">
+                Book Consultation
+                <i data-lucide="arrow-right"></i>
+              </button>
+              <a href="#treatments" class="btn btn-outline" onclick="switchPage('treatments')">Explore Focus Areas</a>
+            </div>
+          </div>
+          <div class="hero-image-wrapper">
+            <div class="hero-image-frame">
+              <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=85&w=1200" alt="[CLINIC NAME] Serene Consultation Space">
+            </div>
+            <div class="hero-badge">
+              <span class="hero-badge-title">Gentle & Root-Focused</span>
+              <p>Individualised remedy selection free from aggressive side effects or suppression.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST SECTION -->
+    <section class="trust-section">
+      <div class="container">
+        <div class="trust-grid">
+          <div class="trust-item">
+            <h4>In-Depth Evaluation</h4>
+            <p>Every case is assessed through a comprehensive review of individual physical and constitutional factors.</p>
+          </div>
+          <div class="trust-item">
+            <h4>Patient-Centred Focus</h4>
+            <p>We prioritize attentive listening, ensuring you are fully understood throughout your therapeutic path.</p>
+          </div>
+          <div class="trust-item">
+            <h4>Systemic Recovery</h4>
+            <p>Targeting the underlying functional imbalance rather than offering short-term symptom masking.</p>
+          </div>
+          <div class="trust-item">
+            <h4>Empathetic Guidance</h4>
+            <p>Dedicated ongoing support to help you achieve sustainable, long-term health and vitality.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOCTOR SECTION (EDITORIAL) -->
+    <section>
+      <div class="container">
+        <div class="doctor-editorial">
+          <div class="doctor-image-container">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=85&w=1000" alt="Dr. [DOCTOR NAME]">
+          </div>
+          <div class="doctor-bio">
+            <span class="section-eyebrow">Lead Practitioner</span>
+            <h2>Dr. [DOCTOR NAME]</h2>
+            <span class="doctor-title">[QUALIFICATIONS / DEGREE, e.g., BHMS, MD]</span>
+            <p>With extensive clinical experience in constitutional homeopathy, Dr. [DOCTOR NAME] integrates classical homeopathic precision with a thoughtful, modern understanding of patient care.</p>
+            <blockquote class="doctor-quote">
+              "True healing begins when we treat the unique individual rather than the diagnosis alone. Homeopathy respects the body's innate wisdom."
+            </blockquote>
+            <p>Specialising in chronic, recurring conditions and preventative wellness, our practice provides an unhurried, quiet space where every patient receives dedicated clinical attention.</p>
+            <div style="margin-top: 2.5rem;">
+              <button class="btn btn-outline" onclick="switchPage('about')">Read Full Profile</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TREATMENTS LIST SECTION (CLEAN ACCORDION LIST) -->
+    <section class="treatments-section">
+      <div class="container">
+        <div class="treatments-header">
+          <div>
+            <span class="section-eyebrow">Clinical Focus</span>
+            <h2>Specialised Care Areas</h2>
+          </div>
+          <button class="btn btn-outline" onclick="switchPage('treatments')">View All Specialties</button>
+        </div>
         
+        <div class="treatment-list">
+          <div class="treatment-row">
+            <button class="treatment-trigger" onclick="toggleTreatment(this)">
+              <span class="treatment-num">01</span>
+              <span class="treatment-title">Skin & Dermatological Care</span>
+              <span class="treatment-short">Targeted constitutional plans for eczema, psoriasis, and chronic dermatitis.</span>
+              <i data-lucide="plus" class="treatment-icon"></i>
+            </button>
+            <div class="treatment-body">
+              <div class="treatment-body-inner">
+                <p>Chronic dermatological flare-ups often stem from internal immune and systemic imbalances. Our classical homeopathic approach aims to address these underlying triggers to encourage long-term skin recovery without relying on persistent topical steroid dependence.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="treatment-row">
+            <button class="treatment-trigger" onclick="toggleTreatment(this)">
+              <span class="treatment-num">02</span>
+              <span class="treatment-title">Hair & Scalp Health</span>
+              <span class="treatment-short">Restoring vitality in cases of alopecia areata, thinning, and scalp conditions.</span>
+              <i data-lucide="plus" class="treatment-icon"></i>
+            </button>
+            <div class="treatment-body">
+              <div class="treatment-body-inner">
+                <p>Scalp imbalances and sudden hair shedding are frequently connected to metabolic, hormonal, or stress factors. We provide individualised remedies formulated to nourish hair follicles naturally from within.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="treatment-row">
+            <button class="treatment-trigger" onclick="toggleTreatment(this)">
+              <span class="treatment-num">03</span>
+              <span class="treatment-title">Digestive & Gut Health</span>
+              <span class="treatment-short">Gentle management for IBS, reflux, and chronic digestive sensitivity.</span>
+              <i data-lucide="plus" class="treatment-icon"></i>
+            </button>
+            <div class="treatment-body">
+              <div class="treatment-body-inner">
+                <p>Gastrointestinal disorders require a subtle approach that restores gut motility and mucosal health without causing harsh disturbances. Homeopathy offers tailored solutions for long-term digestive comfort.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="treatment-row">
+            <button class="treatment-trigger" onclick="toggleTreatment(this)">
+              <span class="treatment-num">04</span>
+              <span class="treatment-title">Respiratory & Allergy Care</span>
+              <span class="treatment-short">Long-term strategies for allergic rhinitis, asthma, and chronic sinus issues.</span>
+              <i data-lucide="plus" class="treatment-icon"></i>
+            </button>
+            <div class="treatment-body">
+              <div class="treatment-body-inner">
+                <p>By moderating hyper-reactive immune responses, our remedies assist in reducing the frequency and severity of allergic respiratory episodes and seasonal sensitivities.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section>
+      <div class="container">
+        <div class="why-us-grid">
+          <div class="why-us-left">
+            <span class="section-eyebrow">Our Philosophy</span>
+            <h2 style="font-size: clamp(2.5rem, 4vw, 3.6rem); margin-bottom: 1.75rem;">A Thoughtful Approach to Lasting Health</h2>
+            <p>We reject rigid, one-size-fits-all medical templates. Our practice operates on the core principle that true health requires a deep understanding of the patient's individual constitution.</p>
+          </div>
+          <div class="why-us-right">
+            <div class="why-card">
+              <h3>Root-Cause Analysis</h3>
+              <p>Rather than merely suppressing isolated external symptoms, we work to balance the deeper underlying factors causing recurring distress.</p>
+            </div>
+            <div class="why-card">
+              <h3>Safe & Micro-Dosed Remedies</h3>
+              <p>Our micro-dosed preparations are non-toxic, non-addictive, and safe for patients of all ages, including infants and elderly individuals.</p>
+            </div>
+            <div class="why-card">
+              <h3>Unhurried Clinical Time</h3>
+              <p>Initial consultations last up to 60 minutes, providing ample space to discuss your complete health history, lifestyle factors, and emotional well-being.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works-section">
+      <div class="container">
+        <span class="section-eyebrow">Your Therapeutic Journey</span>
+        <h2 style="font-size: clamp(2.2rem, 3.5vw, 3.2rem);">Four Steps to Restored Balance</h2>
+        <div class="timeline-list">
+          <div class="timeline-item">
+            <div class="step-num">01</div>
+            <h3 class="step-title">In-Depth Consultation</h3>
+            <p class="step-desc">A detailed case evaluation exploring physical symptoms, medical history, stress factors, and personal disposition.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="step-num">02</div>
+            <h3 class="step-title">Case Synthesis</h3>
+            <p class="step-desc">Rigorous analysis to select the exact constitutional remedy that aligns with your complete health profile.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="step-num">03</div>
+            <h3 class="step-title">Personalised Plan</h3>
+            <p class="step-desc">Receiving your custom homeopathic remedies along with tailored lifestyle and nutritional recommendations.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="step-num">04</div>
+            <h3 class="step-title">Monitored Progress</h3>
+            <p class="step-desc">Regular follow-ups to evaluate improvements, refine dosage, and support sustained recovery.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section>
+      <div class="container">
+        <div class="testimonial-wrapper">
+          <span class="section-eyebrow">Patient Experiences</span>
+          <div id="testimonial-slide">
+            <p class="testimonial-quote">"Dr. [DOCTOR NAME] took the time to understand my full history. Within months of starting treatment, my chronic skin flare-ups subsided significantly."</p>
+            <div class="testimonial-meta">
+              <span class="testimonial-author">[PATIENT INITIALS / NAME]</span>
+              <span class="testimonial-sub">Treated for Chronic Eczema</span>
+            </div>
+          </div>
+          <div class="slider-controls">
+            <button class="slider-btn" onclick="prevTestimonial()" aria-label="Previous testimonial"><i data-lucide="arrow-left"></i></button>
+            <button class="slider-btn" onclick="nextTestimonial()" aria-label="Next testimonial"><i data-lucide="arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section style="background-color: var(--color-bg-subtle);">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 4rem;">
+          <span class="section-eyebrow">Frequently Asked Questions</span>
+          <h2 style="font-size: clamp(2.2rem, 3.5vw, 3rem);">Understanding Homeopathy</h2>
+        </div>
+        <div class="faq-wrapper">
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              How does homeopathic care differ from conventional treatment?
+              <i data-lucide="chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Homeopathy evaluates the individual as an integrated whole rather than treating isolated symptoms in isolation. Remedies are selected based on your unique physical and constitutional picture to stimulate self-healing.</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              How quickly can I expect to notice improvements?
+              <i data-lucide="chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Acute conditions can show positive changes within hours or days. Chronic ailments that have developed over years typically require a few months of steady treatment for progressive, lasting relief.</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Can homeopathic medicines be taken alongside current prescriptions?
+              <i data-lucide="chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Yes. Homeopathic preparations are highly diluted and do not interfere with standard pharmaceutical medications. Always share your complete medical history during your initial consultation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section style="text-align: center; background: var(--color-bg-base);">
+      <div class="container">
+        <span class="section-eyebrow">Begin Your Healing Journey</span>
+        <h2 style="font-size: clamp(2.5rem, 4vw, 3.8rem); margin-bottom: 1.5rem;">Take the First Step Towards Personalised Health.</h2>
+        <p style="max-width: 600px; margin: 0 auto 3rem auto;">Book your initial consultation with Dr. [DOCTOR NAME] to discuss your path to long-term vitality.</p>
+        <button class="btn btn-primary" onclick="openModal()">
+          Book Consultation
+          <i data-lucide="arrow-right"></i>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== ABOUT DOCTOR PAGE ==================== -->
+  <main id="page-about" class="page-view">
+    <section style="padding-top: 140px;">
+      <div class="container">
+        <span class="section-eyebrow">Meet Your Practitioner</span>
+        <h1 style="font-size: clamp(3rem, 5vw, 4.5rem); margin-bottom: 2rem;">Dr. [DOCTOR NAME]</h1>
+        <div class="doctor-editorial">
+          <div class="doctor-image-container">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=85&w=1000" alt="Dr. [DOCTOR NAME]">
+          </div>
+          <div>
+            <p style="font-size: 1.25rem; color: var(--color-text-main); margin-bottom: 1.75rem; line-height: 1.6;">
+              Dr. [DOCTOR NAME] holds [DEGREE / QUALIFICATION, e.g., BHMS, MD in Homeopathy] with over [NUMBER] years of dedicated clinical experience in constitutional medicine.
+            </p>
+            <p style="margin-bottom: 1.5rem;">
+              Trained in classical homeopathic methodologies, the practice focuses on understanding the subtle connections between physical symptoms, lifestyle habits, and stress response.
+            </p>
+            <div style="border-top: 1px solid var(--color-border-subtle); padding-top: 2.5rem; margin-top: 2.5rem;">
+              <h4 style="margin-bottom: 1.5rem; font-size: 1.4rem;">Clinical Focus</h4>
+              <ul style="list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; font-size: 0.95rem;">
+                <li style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="check" style="width: 16px; color: var(--color-gold);"></i> Chronic Autoimmune Management</li>
+                <li style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="check" style="width: 16px; color: var(--color-gold);"></i> Pediatric & Child Healthcare</li>
+                <li style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="check" style="width: 16px; color: var(--color-gold);"></i> Dermatological Conditions</li>
+                <li style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="check" style="width: 16px; color: var(--color-gold);"></i> Metabolic & Digestive Health</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== TREATMENTS PAGE ==================== -->
+  <main id="page-treatments" class="page-view">
+    <section style="padding-top: 140px;">
+      <div class="container">
+        <span class="section-eyebrow">Clinical Focus Areas</span>
+        <h1 style="font-size: clamp(3rem, 5vw, 4.5rem); margin-bottom: 1rem;">Specialised Homeopathic Care</h1>
+        <p style="max-width: 650px; margin-bottom: 5rem;">We offer individualised, evidence-guided homeopathic consultations for a wide spectrum of acute and chronic conditions.</p>
+        
+        <div class="treatment-list">
+          <div class="treatment-row">
+            <button class="treatment-trigger" onclick="toggleTreatment(this)">
+              <span class="treatment-num">01</span>
+              <span class="treatment-title">Skin & Dermatological Care</span>
+              <span class="treatment-short">Targeted remedies for eczema, psoriasis, acne, and urticaria.</span>
+              <i data-lucide="plus" class="treatment-icon"></i>
+            </button>
+            <div class="treatment-body">
+              <div class="treatment-body-inner">
+                <p>Addressing chronic skin conditions by rebalancing internal immune sensitivity rather than relying on persistent topical suppression.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="treatment-row">
+            <button class="treatment-trigger" onclick="toggleTreatment(this)">
+              <span class="treatment-num">02</span>
+              <span class="treatment-title">Hair & Scalp Health</span>
+              <span class="treatment-short">Care for alopecia areata, sudden hair loss, and scalp disorders.</span>
+              <i data-lucide="plus" class="treatment-icon"></i>
+            </button>
+            <div class="treatment-body">
+              <div class="treatment-body-inner">
+                <p>Nourishing hair roots naturally by addressing stress, metabolic shifts, and underlying nutritional absorption issues.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="treatment-row">
+            <button class="treatment-trigger" onclick="toggleTreatment(this)">
+              <span class="treatment-num">03</span>
+              <span class="treatment-title">Digestive & Gut Health</span>
+              <span class="treatment-short">Relief for IBS, acid reflux, and chronic gastritis.</span>
+              <i data-lucide="plus" class="treatment-icon"></i>
+            </button>
+            <div class="treatment-body">
+              <div class="treatment-body-inner">
+                <p>Gentle, non-irritating remedies formulated to soothe mucosal inflammation and optimize gastrointestinal motility.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="treatment-row">
+            <button class="treatment-trigger" onclick="toggleTreatment(this)">
+              <span class="treatment-num">04</span>
+              <span class="treatment-title">Respiratory Conditions</span>
+              <span class="treatment-short">Care for allergic asthma, chronic sinusitis, and rhinitis.</span>
+              <i data-lucide="plus" class="treatment-icon"></i>
+            </button>
+            <div class="treatment-body">
+              <div class="treatment-body-inner">
+                <p>Helping reduce sensitivity to environmental allergens and strengthening natural respiratory immunity.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="treatment-row">
+            <button class="treatment-trigger" onclick="toggleTreatment(this)">
+              <span class="treatment-num">05</span>
+              <span class="treatment-title">Women's Health</span>
+              <span class="treatment-short">Support for PCOS, menstrual irregularities, and hormonal balance.</span>
+              <i data-lucide="plus" class="treatment-icon"></i>
+            </button>
+            <div class="treatment-body">
+              <div class="treatment-body-inner">
+                <p>Restoring natural endocrine balance using micro-dosed constitutional remedies suited to individual cycles.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="treatment-row">
+            <button class="treatment-trigger" onclick="toggleTreatment(this)">
+              <span class="treatment-num">06</span>
+              <span class="treatment-title">Children's Health</span>
+              <span class="treatment-short">Gentle remedies for recurrent colds, allergies, and tonsillitis.</span>
+              <i data-lucide="plus" class="treatment-icon"></i>
+            </button>
+            <div class="treatment-body">
+              <div class="treatment-body-inner">
+                <p>Safe, non-toxic preparations designed specifically for sensitive young immune systems.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== CONTACT PAGE ==================== -->
+  <main id="page-contact" class="page-view">
+    <section style="padding-top: 140px;">
+      <div class="container">
+        <span class="section-eyebrow">Get In Touch</span>
+        <h1 style="font-size: clamp(3rem, 5vw, 4.5rem); margin-bottom: 3.5rem;">Visit Our Practice</h1>
+        <div class="contact-grid">
+          <div>
+            <h3>Clinic Details</h3>
+            <p>Reach out to schedule your in-person or online consultation.</p>
+            <ul class="contact-info-list">
+              <li class="contact-info-item">
+                <i data-lucide="map-pin"></i>
+                <div>
+                  <strong>Address</strong><br>
+                  [CLINIC ADDRESS / BUILDING NAME]<br>
+                  [STREET NAME, CITY, POSTAL CODE]
+                </div>
+              </li>
+              <li class="contact-info-item">
+                <i data-lucide="phone"></i>
+                <div>
+                  <strong>Phone & WhatsApp</strong><br>
+                  [PHONE NUMBER] / [WHATSAPP NUMBER]
+                </div>
+              </li>
+              <li class="contact-info-item">
+                <i data-lucide="mail"></i>
+                <div>
+                  <strong>Email</strong><br>
+                  [CLINIC EMAIL ADDRESS]
+                </div>
+              </li>
+              <li class="contact-info-item">
+                <i data-lucide="clock"></i>
+                <div>
+                  <strong>Consultation Hours</strong><br>
+                  Monday – Saturday: [09:00 AM – 07:00 PM]<br>
+                  Sunday: [By Appointment Only]
+                </div>
+              </li>
+            </ul>
+
+            <!-- INTERACTIVE MAP PLACEHOLDER -->
+            <div class="map-frame">
+              <iframe src="https://maps.google.com/maps?q=Mumbai&t=&z=13&ie=UTF8&iwloc=&output=embed" title="Clinic Location Map"></iframe>
+            </div>
+          </div>
+
+          <div style="background: var(--color-bg-elevated); padding: 3.5rem; border: 1px solid var(--color-border-subtle);">
+            <h3 style="margin-bottom: 2rem; font-size: 2rem;">Send an Inquiry</h3>
+            <form onsubmit="handleFormSubmit(event)">
+              <div class="form-group">
+                <label>Your Full Name</label>
+                <input type="text" class="form-control" required placeholder="Full Name">
+              </div>
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" class="form-control" required placeholder="+91 00000 00000">
+              </div>
+              <div class="form-group">
+                <label>Primary Health Concern</label>
+                <input type="text" class="form-control" placeholder="e.g. Eczema, IBS, Sinusitis">
+              </div>
+              <div class="form-group">
+                <label>Message</label>
+                <textarea class="form-control" rows="4" placeholder="How can we assist you?"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Request</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/[WHATSAPP_NUMBER]" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <i data-lucide="message-circle" style="width: 28px; height: 28px;"></i>
+  </a>
+
+  <!-- APPOINTMENT MODAL -->
+  <div class="modal-overlay" id="appointmentModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal()"><i data-lucide="x"></i></button>
+      <span class="section-eyebrow">Schedule Consultation</span>
+      <h3 style="font-size: 2.2rem; margin-bottom: 2rem;">Book Your Appointment</h3>
+      <form onsubmit="handleFormSubmit(event)">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" class="form-control" required placeholder="Full Name">
+        </div>
+        <div class="form-group">
+          <label>Phone / WhatsApp</label>
+          <input type="tel" class="form-control" required placeholder="Phone Number">
+        </div>
+        <div class="form-group">
+          <label>Consultation Mode</label>
+          <select class="form-control">
+            <option>In-Clinic Consultation</option>
+            <option>Online Video Consultation</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Confirm Booking Request</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">[CLINIC NAME]</div>
+          <p style="color: rgba(255,255,255,0.6); max-width: 320px; font-size: 0.9rem; line-height: 1.7;">
+            Individualised, classical homeopathic care focused on root-cause restoration and patient well-being.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h5>Navigation</h5>
+          <ul>
+            <li><a href="#home" onclick="switchPage('home')">Home</a></li>
+            <li><a href="#about" onclick="switchPage('about')">About Practitioner</a></li>
+            <li><a href="#treatments" onclick="switchPage('treatments')">Specialties</a></li>
+            <li><a href="#contact" onclick="switchPage('contact')">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h5>Specialties</h5>
+          <ul>
+            <li><a href="#treatments" onclick="switchPage('treatments')">Dermatology</a></li>
+            <li><a href="#treatments" onclick="switchPage('treatments')">Gastrointestinal</a></li>
+            <li><a href="#treatments" onclick="switchPage('treatments')">Respiratory Care</a></li>
+            <li><a href="#treatments" onclick="switchPage('treatments')">Pediatrics</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h5>Practice</h5>
+          <ul>
+            <li style="color: rgba(255,255,255,0.65); font-size: 0.9rem;">[CLINIC ADDRESS]</li>
+            <li style="color: rgba(255,255,255,0.65); font-size: 0.9rem;">[PHONE NUMBER]</li>
+            <li style="color: rgba(255,255,255,0.65); font-size: 0.9rem;">[CLINIC EMAIL]</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; <span id="year"></span> [CLINIC NAME]. All rights reserved.</div>
+        <div>Classical Homeopathic Care.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    lucide.createIcons();
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function switchPage(pageId) {
+      const pages = document.querySelectorAll('.page-view');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      pages.forEach(page => page.classList.remove('active'));
+      navLinks.forEach(link => link.classList.remove('active'));
+
+      const selectedPage = document.getElementById(`page-${pageId}`);
+      if (selectedPage) {
+        selectedPage.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === `#${pageId}`) {
+          link.classList.add('active');
+        }
+      });
+
+      document.getElementById('navLinks').classList.remove('active');
+    }
+
+    function toggleMobileMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    function toggleTreatment(buttonElement) {
+      const row = buttonElement.parentElement;
+      const body = buttonElement.nextElementSibling;
+      const isOpen = row.classList.contains('active');
+
+      document.querySelectorAll('.treatment-row').forEach(item => {
+        item.classList.remove('active');
+        item.querySelector('.treatment-body').style.maxHeight = null;
+      });
+
+      if (!isOpen) {
+        row.classList.add('active');
+        body.style.maxHeight = body.scrollHeight + "px";
+      }
+    }
+
+    function toggleFaq(buttonElement) {
+      const answerElement = buttonElement.nextElementSibling;
+      const isOpen = answerElement.style.maxHeight;
+
+      document.querySelectorAll('.faq-answer').forEach(item => {
+        item.style.maxHeight = null;
+      });
+
+      if (!isOpen) {
+        answerElement.style.maxHeight = answerElement.scrollHeight + "px";
+      }
+    }
+
+    const testimonials = [
+      {
+        quote: '"Dr. [DOCTOR NAME] took the time to understand my full history. Within months of starting treatment, my chronic skin flare-ups subsided significantly."',
+        author: '[PATIENT INITIALS / NAME]',
+        condition: 'Treated for Chronic Eczema'
+      },
+      {
+        quote: '"After years of struggling with digestive discomfort, homeopathy provided long-overdue relief without harsh medication side effects."',
+        author: '[PATIENT INITIALS / NAME]',
+        condition: 'Treated for IBS & Acid Reflux'
+      },
+      {
+        quote: '"Attentive, empathetic, and genuinely individualised care. My son’s allergic respiratory flare-ups have improved remarkably."',
+        author: '[PATIENT INITIALS / NAME]',
+        condition: 'Treated for Pediatric Respiratory Allergy'
+      }
+    ];
+
+    let currentTestimonialIndex = 0;
+
+    function renderTestimonial(index) {
+      const container = document.getElementById('testimonial-slide');
+      const data = testimonials[index];
+      container.style.opacity = 0;
+      setTimeout(() => {
+        container.innerHTML = `
+          <p class="testimonial-quote">${data.quote}</p>
+          <div class="testimonial-meta">
+            <span class="testimonial-author">${data.author}</span>
+            <span class="testimonial-sub">${data.condition}</span>
+          </div>
+        `;
+        container.style.opacity = 1;
+      }, 200);
+    }
+
+    function nextTestimonial() {
+      currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+      renderTestimonial(currentTestimonialIndex);
+    }
+
+    function prevTestimonial() {
+      currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
+      renderTestimonial(currentTestimonialIndex);
+    }
+
+    function openModal() {
+      document.getElementById('appointmentModal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('appointmentModal').classList.remove('active');
+    }
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      alert('Thank you! Your inquiry has been submitted. The clinic team will contact you shortly.');
+      closeModal();
+    }
+  </script>
+</body>
+</html>
